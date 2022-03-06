@@ -1,2 +1,2 @@
 # EasyLift
-Mobile Application to powerlifting
+Mobile Application to monitoring powerlifting training. Xamarin.Forms
