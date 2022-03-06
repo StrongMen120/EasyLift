@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EasyLift.StatisticsPage"
+             xmlns:customControls="clr-namespace:EasyLift.Custom"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             BackgroundColor="{StaticResource blackColor}">
+        <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Statystyki"
+                   Style="{StaticResource lblMain}"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="3"/>
+            <Label Text="Ćwiczenie"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   TextColor="{StaticResource labelTextColor}"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="10,0,0,0"
+                   FontSize="20"
+                   />
+            <Frame CornerRadius="10" 
+                   BackgroundColor="{StaticResource purpleColor}"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Margin="25,0,25,0">
+                    <customControls:BorderlessPicker ItemDisplayBinding="{Binding Name}"
+                                                     SelectedItem="{Binding ID}"
+                                                     x:Name="workoutPicker"
+                                                     TextColor="{StaticResource whiteColor}" 
+                                                     SelectedIndexChanged="WorkoutPickerChanged"/>
+            </Frame>
+            <Button Grid.Row="2"
+                    Grid.Column="0" 
+                    Text="&lt;"
+                    TextColor="{StaticResource grayColor}"
+                    BackgroundColor="{StaticResource purpleColor}"
+                    BorderColor="{StaticResource grayColor}"
+                    BorderWidth="5"
+                    CornerRadius="15"
+                    HorizontalOptions="CenterAndExpand"
+                    FontSize="20"
+                    Margin="10,0,0,0"
+                    FontAttributes="Bold"
+                    Clicked="MonthAfter"/>
+            <Button Grid.Row="2"
+                    Grid.Column="2" 
+                    Text="&gt;"
+                    TextColor="{StaticResource grayColor}"
+                    BackgroundColor="{StaticResource purpleColor}"
+                    BorderColor="{StaticResource grayColor}"
+                    BorderWidth="5"
+                    CornerRadius="15"
+                    Margin="0,0,10,0"
+                    HorizontalOptions="CenterAndExpand"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    Clicked="MonthBefore"/>
+            <Label x:Name="MonthPicker"
+                   Text="Listopad"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontSize="20"
+                   TextColor="{StaticResource whiteColor}"
+                   Grid.Row="2"
+                   Grid.ColumnSpan="3"/>
+            <microcharts:ChartView Margin="5,10,5,10"
+                                   x:Name="chartViewLine" 
+                                   Grid.Row="3"
+                                   Grid.ColumnSpan="3"
+                                   HeightRequest="400"
+                                   IsVisible="false"/>
+            <Label Text="Brak Danych !!!"
+                   Margin="0,100,0,0"
+                   x:Name="labelError"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="40"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource whiteColor}"
+                   Grid.Row="3"
+                   Grid.ColumnSpan="3"/>
+            <Button Margin="20,0,0,0"
+                    x:Name="btnIntensity"
+                    Text="Intensywność"
+                    TextColor="{StaticResource whiteColor}"
+                    BackgroundColor="{StaticResource purpleColor}"
+                    BorderColor="{StaticResource grayColor}"
+                    BorderWidth="5"
+                    CornerRadius="15"
+                    Grid.Row="4"
+                    Grid.ColumnSpan="3"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="150"
+                    HorizontalOptions="Start"
+                    Clicked="btnIntensityClicked"/>
+            <Button Margin="0,0,20,0"
+                    x:Name="btnVolume"
+                    TextColor="{StaticResource whiteColor}"
+                    BackgroundColor="{StaticResource purpleColor}"
+                    BorderColor="{StaticResource grayColor}"
+                    BorderWidth="5"
+                    CornerRadius="15"
+                    Grid.Row="4"
+                    Text="Objętość"
+                    Grid.ColumnSpan="3"
+                    WidthRequest="150"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="End"
+                    Clicked="btnVolumeClicked"/>
+        </Grid>
+        </StackLayout>
+</ContentPage>

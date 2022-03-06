@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+           x:Class="EasyLift.Views.AddWrkPopup"
+           xmlns:customControls="clr-namespace:EasyLift.Custom"
+           Size="350,400">
+    <StackLayout BackgroundColor="{StaticResource blackColor}">
+        <Grid Margin="10,30,10,10">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label  Text="Nowy Ćwiczenie"
+                    Style="{StaticResource lblMain}"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"/>
+            <Label  Text="Nazwa Ćwiczenia"
+                    TextColor="{StaticResource labelTextColor}"
+                    FontSize="15"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Grid.Column="0"
+                    Grid.Row="1"/>
+            <customControls:RoundedEntry x:Name="entryName"
+                                TextColor="{StaticResource entryTextColor}"
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                VerticalOptions="CenterAndExpand"
+                                Keyboard="Text" 
+                                MaxLength="20"/>
+            <Label  Text="Opis Ćwiczenia"
+                    FontSize="15"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    TextColor="{StaticResource labelTextColor}"
+                    Grid.Column="0"
+                    Grid.Row="2"/>
+            <customControls:RoundedEntry x:Name="entryDescription"
+                                      TextColor="{StaticResource entryTextColor}"
+                                      Grid.Column="1"
+                                      VerticalOptions="CenterAndExpand"
+                                      Grid.Row="2"
+                                      PlaceholderColor="{StaticResource entryTextColor}"
+                                      Keyboard="Text"
+                                      MaxLength="45"/>
+            <Label Text="Partia :"
+                   TextColor="{StaticResource whiteColor}"
+                   FontSize="15"
+                   HorizontalOptions="EndAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Grid.Row="3"
+                   Grid.Column="0"/>
+            <Frame CornerRadius="10" 
+                   BackgroundColor="{StaticResource purpleColor}"
+                   Grid.Row="3"
+                   Grid.Column="1">
+                    <customControls:BorderlessPicker ItemDisplayBinding="{ Binding BodyElm }"
+                                                 SelectedItem="{ Binding Id }"
+                                                 x:Name="workoutEntry"
+                                                 TextColor="{StaticResource entryTextColor}"/>
+            </Frame>
+            <Button     Text="Anuluj"
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Margin="0,10,0,0"
+                        Style="{StaticResource btnCustom}"
+                        Clicked="CancelClicked"/>
+            <Button     Text="Dodaj Ćwiczenie"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Margin="0,10,0,0"
+                        Style="{StaticResource btnCustom}"
+                        Clicked="AddWorkoutClicked"/>
+        </Grid>
+    </StackLayout>
+</xct:Popup>

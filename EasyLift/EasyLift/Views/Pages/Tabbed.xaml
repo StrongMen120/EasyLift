@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:easylift="clr-namespace:EasyLift"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor="{StaticResource grayColor}"
+            android:TabbedPage.BarSelectedItemColor="{StaticResource purpleColor}"
+             NavigationPage.HasNavigationBar="false"
+            x:Class="EasyLift.Tabbed"
+            BarBackgroundColor="Black"
+            BarTextColor="White">
+    <easylift:MainPage Title="Trening" IconImageSource="home.png"/>
+    <easylift:HistoryPage Title="Historia" IconImageSource="history.png"/>
+    <easylift:StatisticsPage Title="Statystyki" IconImageSource="statistic.png"/>
+    <easylift:UserPage Title="Użytkownik" IconImageSource="user.png"/>
+</TabbedPage>

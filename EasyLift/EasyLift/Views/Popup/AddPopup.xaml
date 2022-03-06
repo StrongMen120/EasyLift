@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+           x:Class="EasyLift.Views.AddPopup"
+           xmlns:customControls="clr-namespace:EasyLift.Custom"
+           Size="350,550">
+    <StackLayout BackgroundColor="{StaticResource blackColor}">
+        <Grid Margin="10,30,10,10">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="160"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label  Text="Nowy Trening"
+                    Style="{StaticResource lblMain}"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"/>
+            <Label  Text="Nazwa Treningu"
+                    TextColor="{StaticResource labelTextColor}"
+                    FontSize="15"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Grid.Column="0"
+                    Grid.Row="1"/>
+            <customControls:RoundedEntry x:Name="entryTitle"
+                                TextColor="{StaticResource entryTextColor}"
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                VerticalOptions="CenterAndExpand"
+                                Keyboard="Text" 
+                                MaxLength="20"/>
+            <Label  Text="Opis"
+                    FontSize="15"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    TextColor="{StaticResource labelTextColor}"
+                    Grid.Column="0"
+                    Grid.Row="2"/>
+            <customControls:RoundedEditor x:Name="editorDescription"
+                                          TextColor="{StaticResource entryTextColor}"
+                                          Grid.Column="1"
+                                          VerticalOptions="CenterAndExpand"
+                                          Grid.Row="2"
+                                          HeightRequest="100"
+                                          Keyboard="Text"
+                                          MaxLength="45"/>
+            <Grid   Margin="10" 
+                    Grid.Row="3" 
+                    Grid.ColumnSpan="2">
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame  x:Name="Pon"
+                        BackgroundColor="{StaticResource black2Color}"
+                        Padding="1"
+                        Margin="0,2,0,2"
+                        Grid.Row="0" 
+                        Grid.Column="0">
+                    <Image  Source="Pon.png" WidthRequest="100" HeightRequest="100" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImgTaped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame  x:Name="Wt"
+                        BackgroundColor="{StaticResource black2Color}"
+                        Padding="1"
+                        Margin="0,2,0,2"
+                        Grid.Row="0" 
+                        Grid.Column="1">
+                    <Image Source="Wt.png" WidthRequest="100" HeightRequest="100">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImgTaped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame  x:Name="Sr"
+                        BackgroundColor="{StaticResource black2Color}"
+                        Padding="1"
+                        Margin="0,2,0,2"
+                        Grid.Row="0"
+                        Grid.Column="2">
+                    <Image Source="Sr.png" WidthRequest="100" HeightRequest="100">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImgTaped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame  x:Name="Czw"
+                        BackgroundColor="{StaticResource black2Color}"
+                        Padding="1"
+                        Margin="0,2,0,2"
+                        Grid.Row="0" 
+                        Grid.Column="3">
+                    <Image Source="Czw.png" WidthRequest="100" HeightRequest="100">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImgTaped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame  x:Name="Pt"
+                        BackgroundColor="{StaticResource black2Color}"
+                        Padding="1"
+                        Margin="0,2,0,2"
+                        Grid.Row="0" 
+                        Grid.Column="4">
+                    <Image Source="Pt.png" WidthRequest="100" HeightRequest="100">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImgTaped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame  x:Name="Sob"
+                        BackgroundColor="{StaticResource black2Color}"
+                        Padding="1"
+                        Margin="0,2,0,2"
+                        Grid.Row="1" 
+                        Grid.Column="0">
+                    <Image Source="Sob.png" WidthRequest="100" HeightRequest="100">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImgTaped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame  x:Name="Niedz"
+                        BackgroundColor="{StaticResource black2Color}"
+                        Padding="1"
+                        Margin="0,2,0,2"
+                        Grid.Row="1" 
+                        Grid.Column="1">
+                    <Image Source="Niedz.png" WidthRequest="100" HeightRequest="100">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImgTaped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame  x:Name="Push"
+                        BackgroundColor="{StaticResource black2Color}"
+                        Padding="1"
+                        Margin="0,2,0,2"
+                        Grid.Row="1" 
+                        Grid.Column="2">
+                    <Image Source="Push.png" WidthRequest="100" HeightRequest="100">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImgTaped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame  x:Name="Pull"
+                        BackgroundColor="{StaticResource black2Color}"
+                        Padding="1"
+                        Margin="0,2,0,2"
+                        Grid.Row="1" 
+                        Grid.Column="3">
+                    <Image Source="Pull.png" WidthRequest="100" HeightRequest="100">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImgTaped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Frame  x:Name="Legs" 
+                        BackgroundColor="{StaticResource black2Color}"
+                        Padding="1"
+                        Margin="0,2,0,2"
+                        Grid.Row="1" 
+                        Grid.Column="4">
+                    <Image Source="Legs.png" WidthRequest="100" HeightRequest="100">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImgTaped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+            </Grid>
+            <Button     Text="Anuluj"
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Style="{StaticResource btnCustom}"
+                        Clicked="CancelClicked"/>
+            <Button     Text="Dodaj Trening"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Style="{StaticResource btnCustom}"
+                        Clicked="AddExerciseClicked"/>
+        </Grid>
+    </StackLayout>
+</xct:Popup>

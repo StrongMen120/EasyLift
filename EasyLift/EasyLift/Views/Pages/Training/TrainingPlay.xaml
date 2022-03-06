@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EasyLift.Views.TrainingPlay"
+             BackgroundColor="{StaticResource blackColor}"
+             xmlns:customControls="clr-namespace:EasyLift.Custom"
+             Title="Plan Treningowy">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem
+                x:Name="btnTimer"
+                Text="Start"
+                Clicked="ResetTime"/>
+        </ContentPage.ToolbarItems>
+        <StackLayout>
+        <Frame BackgroundColor="{StaticResource purpleColor}"
+               CornerRadius="10"
+               Padding="5"
+               Margin="5"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand">
+            <Label x:Name="Timer"
+                   Text="0.0 sek"
+                   TextColor="{StaticResource whiteColor}"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0,0,0,0"/>
+        </Frame>
+        <ListView HasUnevenRows="True"
+                  SeparatorVisibility="None" 
+                  x:Name="WorkListView"
+                  Margin="10,0,10,10"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  SelectionMode="None"
+                  SelectedItem="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <customControls:CustomViewCell SelectedBackgroundColor="{StaticResource blackColor}" >
+                        <ViewCell.View>
+                            <Frame BackgroundColor="{StaticResource purpleColor}"
+                                   Padding="2"
+                                   CornerRadius="10"
+                                   Margin="0,0,0,0">
+                                <Frame x:Name="{Binding ID, StringFormat ='F{0:F0}'}"
+                                       BorderColor="{StaticResource purpleColor}"
+                                       BackgroundColor="{StaticResource whiteColor}"
+                                       CornerRadius="10">
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="40"/>
+                                                <RowDefinition Height="100"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="40"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding Name}"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   FontSize="25" 
+                                                   Grid.Row="0"
+                                                   Grid.ColumnSpan="2"
+                                                   TextColor="{StaticResource black2Color}" 
+                                                   FontAttributes="Bold"/>
+                                            <Frame VerticalOptions="CenterAndExpand"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   Margin="0"
+                                                   Padding="3"
+                                                   BackgroundColor="{StaticResource purpleColor}">
+                                                <Image Source="{Binding Img}"
+                                                       BackgroundColor="#A0FFFFFF"
+                                                   />
+                                            </Frame>
+                                            <Frame Grid.Row="1"
+                                                   Grid.Column="1"
+                                                   Padding="1"
+                                                   BackgroundColor="#000000FF">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Text="{Binding Rate, StringFormat='Tempo : {0:F0}'}"
+                                                           Grid.Row="0"
+                                                           FontAttributes="Bold"/>
+                                                    <Label Text="{Binding RPM, StringFormat='RPM : {0:F0}'}"
+                                                           Grid.Row="1"
+                                                           FontAttributes="Bold"/>
+                                                    <Label Text="{Binding Time, StringFormat='Czas : {0:F0}'}"
+                                                           Grid.Row="2"
+                                                           FontAttributes="Bold"/>
+                                                </Grid>
+                                            </Frame>
+                                            <ListView Grid.Row="2"
+                                                      Grid.ColumnSpan="2"
+                                                      RowHeight="50"
+                                                      Margin="5,5,5,5"
+                                                      ItemsSource="{Binding LstSeries}"
+                                                      SelectionMode="None"
+                                                      SelectedItem="None">
+                                                <ListView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <customControls:CustomViewCell SelectedBackgroundColor="{StaticResource blackColor}" >
+                                                            <ViewCell.View>
+                                                                <StackLayout BackgroundColor="{StaticResource blueColor}"
+                                                                             Padding="3"
+                                                                             x:Name="{Binding IDS, StringFormat='SL{0:F0}'}">
+                                                                    <Frame Margin="0"
+                                                                           Padding="1"
+                                                                           HeightRequest="64"
+                                                                           BackgroundColor="{StaticResource grayColor}">
+                                                                        <Grid>
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition Width="*"/>
+                                                                                <ColumnDefinition Width="*"/>
+                                                                                <ColumnDefinition Width="*"/>
+                                                                                <ColumnDefinition Width="*"/>
+                                                                                <ColumnDefinition Width="*"/>
+                                                                                <ColumnDefinition Width="*"/>
+                                                                                <ColumnDefinition Width="*"/>
+                                                                            </Grid.ColumnDefinitions>
+                                                                            <Button Text="+"
+                                                                                    CornerRadius="20"
+                                                                                    WidthRequest="40"
+                                                                                    HeightRequest="35"
+                                                                                    FontSize="12"
+                                                                                    TextColor="{StaticResource whiteColor}"
+                                                                                    BackgroundColor="{StaticResource blueColor}"
+                                                                                    FontAttributes="Bold"
+                                                                                    Grid.Column="0"
+                                                                                    HorizontalOptions="CenterAndExpand"
+                                                                                    VerticalOptions="CenterAndExpand"
+                                                                                    Clicked="ButtonAddWeight"/>
+                                                                            <Label TextColor="{StaticResource entryTextColor}"
+                                                                                   Grid.Column="1"
+                                                                                   FontSize="12"
+                                                                                   VerticalOptions="CenterAndExpand"
+                                                                                   HorizontalOptions="CenterAndExpand"
+                                                                                   Text="{Binding Weight,StringFormat='{0:F0} kg'}"/>
+                                                                            <Button Text="-"
+                                                                                    CornerRadius="20"
+                                                                                    WidthRequest="40"
+                                                                                    HeightRequest="35"
+                                                                                    FontSize="12"
+                                                                                    TextColor="{StaticResource whiteColor}"
+                                                                                    BackgroundColor="{StaticResource redColor}"
+                                                                                    FontAttributes="Bold"
+                                                                                    Grid.Column="2"
+                                                                                    HorizontalOptions="CenterAndExpand"
+                                                                                    VerticalOptions="CenterAndExpand"
+                                                                                    Clicked="ButtonRemWeight"/>
+                                                                            <Button Text="+"
+                                                                                    CornerRadius="20"
+                                                                                    WidthRequest="40"
+                                                                                    HeightRequest="35"
+                                                                                    FontSize="12"
+                                                                                    TextColor="{StaticResource whiteColor}"
+                                                                                    BackgroundColor="{StaticResource blueColor}"
+                                                                                    FontAttributes="Bold"
+                                                                                    Grid.Column="3"
+                                                                                    HorizontalOptions="CenterAndExpand"
+                                                                                    VerticalOptions="CenterAndExpand"
+                                                                                    Clicked="ButtonAddReps"/>
+                                                                            <Label TextColor="{StaticResource entryTextColor}"
+                                                                                   Grid.Column="4"
+                                                                                   VerticalOptions="CenterAndExpand"
+                                                                                   HorizontalOptions="CenterAndExpand"
+                                                                                   FontSize="12"
+                                                                                   Text="{Binding Reps}"/>
+                                                                            <Button Text="-"
+                                                                                    CornerRadius="20"
+                                                                                    WidthRequest="40"
+                                                                                    HeightRequest="35"
+                                                                                    FontSize="12"
+                                                                                    TextColor="{StaticResource whiteColor}"
+                                                                                    BackgroundColor="{StaticResource redColor}"
+                                                                                    FontAttributes="Bold"
+                                                                                    Grid.Column="5"
+                                                                                    HorizontalOptions="CenterAndExpand"
+                                                                                    VerticalOptions="CenterAndExpand"
+                                                                                    Clicked="ButtonRemReps"/>
+                                                                            <CheckBox Grid.Column="6"
+                                                                                      Color="{StaticResource greenColor}"
+                                                                                      ClassId="{Binding IDS}"
+                                                                                      CheckedChanged="CheckBoxChanged"/>
+                                                                        </Grid>
+                                                                    </Frame>
+                                                                </StackLayout>
+                                                            </ViewCell.View>
+                                                        </customControls:CustomViewCell>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                            </ListView>
+                                            <Label Text="AKCEPTUJ"
+                                                   ClassId="{Binding ID}"
+                                                   Grid.Row="3"
+                                                   Grid.ColumnSpan="2"
+                                                   TextColor="{StaticResource black2Color}"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   VerticalOptions="CenterAndExpand"
+                                                   FontSize="35"
+                                                   FontAttributes="Bold">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapLabel_Tapped"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </Frame>
+                        </ViewCell.View>
+                    </customControls:CustomViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Koniec Treningu"
+                BackgroundColor="{StaticResource purpleColor}"
+                CornerRadius="20"
+                Margin="10"
+                TextColor="{StaticResource whiteColor}"
+                FontSize="17"
+                BorderColor="{StaticResource grayColor}"
+                BorderWidth="5"
+                Clicked="SaveTraining"/>
+        </StackLayout>
+</ContentPage>
